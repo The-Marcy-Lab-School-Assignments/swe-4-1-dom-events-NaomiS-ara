@@ -29,3 +29,31 @@ TODO:
   - [ ] generates a random fortune from the fortunes array
   - [ ] shows the fortune in the answer element
 */
+
+const askBtn = document.getElementById("ask");
+const eightBall = document.getElementById("eight-ball");
+const answerEl = document.getElementById("answer");
+
+const fortunes = [
+  "Yes",
+  "No",
+  "Maybe",
+  "Ask again later",
+  "Definitely",
+  "Absolutely not",
+  "It is certain",
+  "Very doubtful"
+];
+
+askBtn.addEventListener("click", () => {
+  // hide the eight ball
+  eightBall.style.display = "none";
+
+  // pick a random fortune
+  const randomIndex = Math.floor(Math.random() * fortunes.length);
+  const fortune = fortunes[randomIndex];
+
+  // set and show answer
+  answerEl.textContent = fortune;
+  answerEl.style.display = "block";
+});
